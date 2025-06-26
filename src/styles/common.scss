@@ -1,0 +1,273 @@
+@use 'vendors/normalize.css';
+@use 'utils/vars';
+@use 'utils/fonts';
+@use 'mixins/disable-mob-hover';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+}
+
+.page {
+  height: 100%;
+  font-weight: 400;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-width: 320px;
+  font-family: vars.$font-family;
+  font-size: 16px;
+  background-color: vars.$white-color;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-reset {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 50px;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+}
+
+.loader {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: vars.$white-color;
+  transition: opacity 0.3s ease-in-out;
+  inset: 0;
+}
+
+.spinner {
+  border: 5px solid vars.$light-blue-color;
+  border-top-color: vars.$blue-color;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+
+  &__main {
+    width: 50px;
+    height: 50px;
+  }
+
+  &__btn {
+    display: block;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+  }
+}
+ 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-loading {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.btn {
+  padding: 14px 21px;
+  border: none;
+  border-radius: 10px;
+  font-family: vars.$font-family;
+  font-weight: 500;
+  font-size: vars.$main-size;
+  line-height: 143%;
+  text-align: center;
+  color: vars.$white-color;
+  background-color: vars.$blue-color;
+  transition: outline 0.3s ease-in-out, color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 3px solid vars.$navy-blue-color;
+  }
+
+  @include disable-mob-hover.hover {
+    color: vars.$white-color;
+    background-color: vars.$sky-blue;
+  }
+
+  &:active {
+    background-color: vars.$navy-blue-color;
+  }
+
+  &:disabled {
+    background-color: vars.$grey-color;
+    cursor: default;
+  }
+}
+
+.section {
+  padding-top: 44px;
+  padding-bottom: 50px;
+
+  &__title {
+    margin: 0;
+    font-family: vars.$font-family;
+    font-weight: 700;
+    font-size: 34px;
+    letter-spacing: -0.02em;
+    color: vars.$black-color;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-family: vars.$second-family;
+    font-weight: 400;
+    font-size: 34px;
+    letter-spacing: -0.02em;
+    color: vars.$black-color;
+  }
+
+  &__card {
+    padding: 25px 50px;
+    border-radius: 50px;
+
+    &-title {
+      margin: 0;
+      margin-bottom: 25px;
+      font-family: vars.$font-family;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: vars.$black-color;
+    }
+
+    &-dark {
+      background-color: vars.$light-grey-color;
+    }
+
+    &-light {
+      box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.form {
+  &__label {
+    font-family: vars.$font-family;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: -0.01em;
+    color: vars.$dark-color;
+  }
+
+  &__input {
+    padding: 11px 10px 11px 16px;
+    border: 1px solid #9ca3af;
+    border-radius: 7px;
+    width: 300px;
+    background-color: vars.$white-color;
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+    &::placeholder {
+      font-family: vars.$font-family;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: vars.$grey-color;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      border-color: vars.$navy-blue-color;
+    }
+  }
+
+  &__error-msg {
+    position: absolute;
+    bottom: -15px;
+    font-size: 12px;
+    color: vars.$red-color;
+  }
+}
+
+.is-invalid {
+  border-color: vars.$red-color;
+}
+
+.empty-message {
+
+  &__text {
+
+  }
+}
+
+.error-message__sm {
+  margin: 0;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 20px;
+  color: vars.$red-color;
+  background-color: #FFCDD1;
+}
+
+.error-message__bg {
+  margin: 0;
+  margin-top: 25px;
+  padding-left: 25px;
+  font-size: 30px;
+}

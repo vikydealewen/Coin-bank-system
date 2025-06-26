@@ -1,0 +1,96 @@
+@use '../utils/vars';
+
+.accounts {
+  &__top {
+    align-items: flex-start;
+    margin-bottom: 51px;
+  }
+
+  &__container {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin-right: 35px;
+  }
+
+  &__list {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 50px 70px;
+  }
+
+  &__item {
+    padding: 22px;
+    border-radius: 9px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.25);
+
+    &-bottom {
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    &-title {
+      margin: 0;
+      margin-bottom: 9px;
+      font-family: "Roboto", sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 122%;
+      letter-spacing: -0.01em;
+      color: vars.$dark-color;
+    }
+
+    &-balance {
+      margin: 0;
+      margin-bottom: 9px;
+      font-family: vars.$font-family;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 143%;
+      color: vars.$dark-blue-color
+    }
+  }
+
+  &__transaction {
+    font-family: vars.$second-family;
+    font-size: 13px;
+    letter-spacing: -0.02em;
+
+    &-text {
+      margin: 0;
+      font-weight: 700;
+    }
+
+    &-date {
+      margin: 0;
+      font-weight: 400;
+    }
+  }
+}
+
+.top {
+  &__btn {
+    align-items: center;
+    margin-left: auto;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 16px;
+  }
+}
+
+.plus {
+  margin-right: 14px;
+  width: 24px;
+  height: 24px;
+}
+
+.sort-select {
+  width: 300px;
+
+  &__inner {
+    padding-left: 16px;
+  }
+}

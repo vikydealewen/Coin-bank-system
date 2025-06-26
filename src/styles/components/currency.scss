@@ -1,0 +1,199 @@
+@use '__account-common.scss';
+@use '../utils/vars';
+
+.currency {
+  &__bottom {
+    grid-auto-flow: column dense;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 50px;
+  }
+
+  &__card {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+  }
+
+  &__account-currencies {
+    grid-column: 1 span;
+  }
+
+  &__exchange {
+    grid-column: 1 span;
+  }
+
+  &__rate {
+    grid-row: 2 span;
+  }
+}
+
+.account-currencies {
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.25);
+  
+  &__item {
+    justify-content: space-between;
+    margin-bottom: 25px;
+    font-family: vars.$second-family;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: vars.$black-color;
+  }
+
+  &__left {
+    flex-grow: 1;
+    align-items: center;
+  }
+
+  &__subtitle {
+    margin: 0;
+    margin-right: 10px;
+    font-weight: 600;
+  }
+
+  &__dotes {
+    position: relative;
+    display: inline-block;
+    flex-grow: 1;
+    margin-right: 10px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: -6px;
+      border-bottom: 1px dashed vars.$black-color;
+      width: 100%;
+      font-weight: 400;
+      font-size: 5px;
+      letter-spacing: .6em;
+    }
+  }
+
+  &__amount {
+    margin: 0;
+    font-weight: 400;
+  }
+}
+
+.exchange {
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.25);
+
+  &__form {
+    justify-content: space-between;
+
+    &-btn {
+      align-items: center;
+    }
+  }
+
+  &__left {
+    margin-right: 25px;
+
+    &-top {
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    &-bottom {
+      position: relative;
+      align-items: center;
+    }
+  }
+
+  &__label {
+    margin-right: 20px;
+
+    &-amount {
+      margin-right: 8px;
+    }
+  }
+}
+
+.rate {
+  background-color: vars.$light-grey-color;
+
+  &__item {
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    font-family: vars.$second-family;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: vars.$black-color;
+  }
+
+  &__left {
+    flex-grow: 1;
+    align-items: center;
+  }
+
+  &__subtitle {
+    margin: 0;
+    margin-right: 10px;
+    font-weight: 600;
+  }
+
+  &__dotes {
+    position: relative;
+    display: inline-block;
+    flex-grow: 1;
+    margin-right: 10px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      font-weight: 400;
+      font-size: 5px;
+      letter-spacing: .6em;
+    }
+
+   &-drop {
+     &::after {
+        border-bottom: 1px dashed vars.$red-color;
+      }
+   }
+
+   &-increase {
+      &::after {
+        border-bottom: 1px dashed vars.$green-color;
+      }
+   }
+  }
+
+  &__amount {
+    margin: 0;
+    margin-right: 15px;
+    font-weight: 400;
+  }
+
+  &__arrow {
+    &-container {
+      display: block;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-img {
+      width: 20px;
+      height: 10px;
+    }
+  }
+}
+
+.currency-select {
+  &__inner {
+    padding-left: 15px;
+    width: 134px;
+  }
+
+  &__from {
+    margin-right: 20px;
+  }
+}

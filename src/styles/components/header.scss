@@ -1,0 +1,69 @@
+@use '../utils/vars';
+@use '../mixins/disable-mob-hover';
+
+.header {
+  width: 100%;
+  background-color: vars.$blue-color;
+
+  &__container {
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 50px;
+  }
+}
+
+.logo {
+  display: inline-block;
+  height: max-content;
+
+  &__img {
+    width: 110px;
+    height: 50px;
+  }
+}
+
+.nav {
+  &__item {
+    margin: 0;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 25px;
+  }
+
+  &__link {
+    padding: 16px 24px;
+    border-radius: 7px;
+    font-family: vars.$font-family;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: vars.$blue-color;
+    background-color: vars.$white-color;
+    transition: outline 0.3s ease-in-out, color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 3px solid vars.$navy-blue-color;
+    }
+
+    @include disable-mob-hover.hover {
+      color: vars.$white-color;
+      background-color: vars.$navy-blue-color;
+    }
+
+    &:active {
+      color: vars.$blue-color;
+      background-color: vars.$light-blue-color;
+    }
+
+    &--active {
+      background-color: vars.$light-blue-color; 
+    }
+  }
+}

@@ -1,0 +1,106 @@
+@use '../utils/vars';
+
+.account {
+  &__top {
+    margin-bottom: 50px;
+
+    &-title {
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    &-subtitle {
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__btn {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  &__btn-back {
+    align-items: center;
+    padding-left: 28px;
+  }
+
+  &__balance {
+    &-text {
+      margin: 0;
+      margin-right: 50px;
+      font-family: vars.$second-family;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: vars.$black-color;
+    }
+
+    &-info {
+      margin: 0;
+      font-family: vars.$second-family;
+      font-weight: 400;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: vars.$black-color;
+    }
+  }
+
+  &__history {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.history-table {
+  border-collapse: collapse;
+  width: 100%;
+
+  &__head {
+    background-color: vars.$blue-color;
+
+    &-th {
+      padding: 20px 40px;
+      font-family: vars.$font-family;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+      color: vars.$white-color;
+    }
+
+    &-th:first-child {
+      border-radius: 15px 0 0 15px;
+    }
+
+    &-th:last-child {
+      border-radius: 0 15px 15px 0;
+    }
+  }
+
+  &__body {
+    &-td {
+      padding: 21px 40px 26px;
+      border: none;
+      border-bottom: 2px solid rgba(0, 82, 255, 0.1);
+      text-align: center;
+    }
+  }
+
+  &__amount {
+    &-send {
+      color: vars.$red-color;
+    }
+
+    &-receive {
+      color: vars.$green-color;
+    }
+  }
+}
+
+.arrow-back {
+  margin-right: 14px;
+  width: 12px;
+  height: 16px;
+}

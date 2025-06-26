@@ -1,0 +1,91 @@
+@use '../utils/vars';
+
+.choices {
+  margin-bottom: 0;
+
+  &__inner {
+    padding-top: 10px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    border: 1px solid vars.$blue-color;
+    border-radius: 7px;
+    background-color: transparent;
+  }
+
+  &__list--single {
+    padding: 0;
+  }
+
+  &__item {
+    font-family: vars.$font-family;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: vars.$dark-blue-color;
+  }
+
+  &__placeholder {
+    opacity: 1;
+  }
+
+  &__list--dropdown {
+    margin-top: 2px;
+    border-color: transparent;
+    border-radius: 7px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  &[data-type*=select-one]::after {
+    right: 19.5px;
+  }
+
+  &[data-type*=select-one] .choices__inner {
+    padding-bottom: 10px;
+  }
+}
+
+.is-open .choices__inner {
+  border-radius: 7px;
+}
+
+.is-flipped.is-open .choices__inner {
+  border-radius: 7px;
+}
+
+.is-focused .choices__inner {
+  border-color: vars.$navy-blue-color;
+}
+
+.is-open .choices__list--dropdown {
+  margin-top: 2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+.is-flipped .choices__list--dropdown,
+.is-flipped .choices__list--dropdown[aria-expanded] {
+  border-radius: 7px;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted,
+.choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+  background-color: vars.$light-blue-color;
+}
+
+.choices__list--dropdown .choices__item,
+.choices__list[aria-expanded] .choices__item {
+  font-size: 16px;
+}
+
+.is-selected::after {
+  position: absolute;
+  content: "\2713";
+  right: 0;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+}
